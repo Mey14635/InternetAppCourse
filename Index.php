@@ -1,6 +1,8 @@
 <?php
-require 'Classes.php';
-print("hello world ");
-$simple=new Simple();
-$simple->greet();
+//include the loader for everything
+require 'AutoLoad.php';
+$layouts->header($config);
+$forms->signup();
+$layouts->footer($config);
+
 ?>
