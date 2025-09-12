@@ -9,7 +9,7 @@ $password = trim($_POST['password'] ?? '');
 
 // 3. Hash the password
 $hash = password_hash($password, PASSWORD_DEFAULT);
-
+// validation of credentials before inserting into the database
 if ($username === '' || $email === '' || $password === '') {
     exit('All fields are required.');
 }
