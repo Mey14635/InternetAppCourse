@@ -1,0 +1,43 @@
+Git Command Documentation
+
+1️. Removing Sensitive Files From History
+git rm -r --cached Global
+    Removed the Global/ folder from the Git index but left the folder on disk.
+    This prevents credentials inside that folder from being tracked in future commits.
+
+git commit -m "remove sensitive Infos"
+    Recorded the removal of the Global folder from the repository’s history with a descriptive commit message.
+
+git push origin main --force
+    Force-pushed the branch to overwrite the remote history so the sensitive files were removed from GitHub as well.
+2️. Normal Development: Adding New Code and Dependencies
+git add .
+    Staged all current changes, including new PHP files, the vendor folder, and other project files.
+
+git commit -m "Connect to db and Form verification"
+    Committed the new database connection, form-verification code, and added PHPMailer vendor files.
+
+git push
+    Pushed those commits to the main branch on GitHub.
+3️.Ignoring Vendor & Credentials
+echo "/vendor" >> .gitignore
+    Added the vendor/ directory to .gitignore so that future changes in the Composer/PHPMailer dependencies are not pushed to GitHub.
+
+git add .gitignore
+    Staged the updated .gitignore. (Some attempts failed earlier because the file name was mistyped as .gitimore.)
+
+git commit -m "Add gitignore to exclude vendor"
+    Committed the ignore rules.
+
+git push
+    Pushed the updated .gitignore to GitHub.
+4️. Further Fixes and Updates
+git add AutoLoad.php Submit.php Global composer.json composer.lock
+    Staged only specific project files for the next commit while keeping credentials in Global/ tracked this time.
+
+git commit -m "move the new mailer sender in global and fix errors"
+    Saved code changes after restructuring the mail sender and fixing errors.
+
+git push
+    Uploaded these fixes to GitHub.
+
