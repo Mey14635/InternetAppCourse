@@ -1,7 +1,7 @@
 <?php
 require 'Config.php';
 //specify directories to search for classes
-$directory=array("Global","Layouts","Forms" ,);
+$directory=array("Global","Layouts","Forms","Plugins/PHPMailer",) ;
 spl_autoload_register(function($class_name) use ($directory){
     foreach($directory as $dir){
        
@@ -12,7 +12,7 @@ spl_autoload_register(function($class_name) use ($directory){
     }
 });
 //create instances without manually including their files 
-$simple=new Simple();
+//$sender=new Sender();
 $layouts=new Layouts();
 $forms=new Forms(); 
 ?>

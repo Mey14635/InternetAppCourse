@@ -1,8 +1,9 @@
 <?php
+//require 'Sender.php';
 class forms {
     public function signup() {
 ?>        
-        <form action='submit.php' method='post'>
+        <form action='Submit.php' method='post'>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required><br><br>
 
@@ -21,7 +22,7 @@ class forms {
 
     public function signin() {
 ?>        
-        <form action='submit.php' method='post'>
+        <form action='Submit.php' method='post'>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required><br><br>
             
