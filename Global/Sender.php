@@ -54,7 +54,7 @@ class Sender
                 'Hello ' . htmlspecialchars($username) . ',<br><br>
                  you requested an account on ICS 2.2<br><br>
                  In order to use this account you need to
-                 <a href="http://localhost/InternetAppCourse/Submit.php?email=' . urlencode($email) . '">
+                 <a href="http://localhost/InternetAppCourse/Login.php?email=' . urlencode($email) . '">
                      Click here
                  </a> to complete the registration process.<br><br>
                  <br><br>

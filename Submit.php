@@ -10,6 +10,16 @@ $password = trim($_POST['password'] ?? '');
 // 3. Hash the password
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
+if ($username === '' || $email === '' || $password === '') {
+    exit('All fields are required.');
+}
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    exit('Invalid email.');
+}
+if (strlen($password) < 6) {
+    exit('Password must be at least 6 characters.');
+}
+
 // 4. Insert into the database
 $stmt = $mysqli->prepare(
     "INSERT INTO users (username, email, password) VALUES (?, ?, ?)"
@@ -20,9 +30,6 @@ if (!$stmt) {
 $stmt->bind_param('sss', $username, $email, $hash);
 if (!$stmt->execute()) {
     die('Database insert failed: ' . $stmt->error);
-}
-else {
-    echo "User registered successfully.<br>";
 }
 
 // 5. Send the verification email
@@ -35,7 +42,7 @@ try {
 }
 
 // 6. Redirect the user to a “finish registration” page
-header("Location:InternetAppCousre/Index.php?email=" . urlencode($email));
+header("Location:/InternetAppCourse/Login.php?email=" . urlencode($email));
 exit;
 
 ?>
